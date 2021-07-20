@@ -1,38 +1,18 @@
-# create-svelte
+# svelte-storybook-workarounds
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+This is an example repository showing the workarounds needed to get Storybook working well with SvelteKit as of July 2021.
 
-## Creating a project
+SvelteKit is still changing as of this writing and Storybook is constantly releasing new versions,
+so I do not recommend forking this code as it may be out of date by the time you see it.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Instead, I recommend these steps:
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+1. Create your Sveltekit project: `npm init svelte@next my-app`
+2. Install Storybook: `cd my-app && npx sb init`
+3. Install Webpack 5 Storybook builder dependencies: `npm install --save-dev @storybook/builder-webpack5 @storybook/manager-webpack5`
+4. Copy the following files from this repository:
+    - [`.storybook/main.cjs`](./.storybook/main.cjs) -- and delete `.storybook/main.js` in your project
+    - [`.storybook/package.json`](./storybook/package.json) -- yes, it's just an empty object
+5. Make sure that the Svelte preprocessor configuration in `.storybook/main.cjs` matches the one you want in `svelte.config.js`.
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+I've detailed the full process [on my website](https://imfeld.dev/writing/sveltekit_with_storybook).
