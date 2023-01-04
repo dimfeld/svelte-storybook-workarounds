@@ -1,5 +1,10 @@
 # svelte-storybook-workarounds
 
+**Update for 2023: Don't use this anymore. Storybook 7 is in beta and works great with SvelteKit 1.0 out of the box!**
+
+
+
+
 This is an example repository showing the workarounds needed to get Storybook working well with SvelteKit as of July 2021.
 
 SvelteKit is still changing as of this writing and Storybook is constantly releasing new versions,
